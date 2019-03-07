@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".StartApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_test"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        Ajout d'une authorisation obligatoire depuis API 26
+        precisez le nom de votre package pour l'atribute android:authorities="package"
+        <provider
+            android:name="com.activeandroid.content.ContentProvider"
+            android:authorities="com.app"
+            android:enabled="true"
+            android:exported="false"></provider>
+        <!-- definir la BD -->
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="formation.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" /> <!-- definition des tables -->
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.app.active_android.Ville" />
+
+        <activity android:name=".activeAndroid.OrmActivity" />
+        <activity android:name=".servicethread.ThreadServiceActivity" />
+        <activity android:name=".sqlite.SqliteActivity" />
+        <activity android:name=".PreferenceActivity" />
+        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".servicethread.InfoService" />
+
+    </application>
+
+</manifest>

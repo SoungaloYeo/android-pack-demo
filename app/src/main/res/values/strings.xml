@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DEMO OBJIS</string>
+    <string name="tv_nom">Nom:</string>
+    <string name="tv_prenom">Prénom:</string>
+    <string name="tv_commune">Commune:</string>
+    <string name="tv_enregistrer">Enregistrer</string>
+    <string name="tv_filiere">Filière</string>
+    <string name="title_activity_orm">DEMO ACTIVE ANDROID</string>
+</resources>
