@@ -7,9 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activeAndroid.OrmActivity"
+    tools:context=".retrofit2.RetrofitActivity"
     android:layout_marginTop="?attr/actionBarSize"
-    tools:showIn="@layout/activity_orm">
+    android:paddingTop="50dp"
+    tools:showIn="@layout/activity_retrofit">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,36 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CODE VILLE"
+            android:text="LIBELLE"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <EditText
-            android:id="@+id/txt_ormcode"
+            android:id="@+id/txt_retrolib"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="code"
-            android:textColorHint="@color/colorPrimary" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="DESIGNATION"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
-
-        <EditText
-            android:id="@+id/txt_ormdesign"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="designation"
+            android:hint="libellé"
             android:textColorHint="@color/colorPrimary" />
 
     </LinearLayout>
@@ -65,7 +46,7 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <EditText
-            android:id="@+id/txt_ormpopu"
+            android:id="@+id/txt_retropop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -83,31 +64,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DEPARTEMENT"
+            android:text="NBRE DE PLACE"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <EditText
-            android:id="@+id/txt_ormdep"
+            android:id="@+id/txt_retronbrplace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:layout_weight="1"
-            android:hint="dep"
+            android:hint="nbre de place"
             android:textColorHint="@color/colorPrimary" />
 
     </LinearLayout>
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="15dp"-->
-        <!--android:gravity="center"-->
-        <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"-->
-        <!--android:text="LISTE DES VILLES"/>-->
-    <!--<ListView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="15dp">-->
-
-    <!--</ListView>-->
-
 
 </LinearLayout>

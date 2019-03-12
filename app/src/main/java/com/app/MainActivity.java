@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.activeandroid.ActiveAndroid;
 import com.app.activeAndroid.OrmActivity;
+import com.app.retrofit2.RetrofitActivity;
 import com.app.common.CommonPersonne;
 import com.app.model.Personne;
 import com.app.servicethread.ThreadServiceActivity;
@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        ActiveAndroid.initialize(this);
 
         this.toolbar = findViewById(R.id.toolBar);
         this.toolbar.setTitle("Formulaire de Personne");
@@ -69,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
 
     }
@@ -105,9 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent4 = new Intent(this, ThreadServiceActivity.class);
                 startActivity(intent4);
                 break;
-                case R.id.item_orm:
-                Intent intent5 = new Intent(this, OrmActivity.class);
+            case R.id.item_retrofit:
+                Intent intent5 = new Intent(this, RetrofitActivity.class);
                 startActivity(intent5);
+                break;
+            case R.id.item_orm:
+                Intent intent6 = new Intent(this, OrmActivity.class);
+                startActivity(intent6);
                 break;
             case R.id.item_quitter:
                 finish();

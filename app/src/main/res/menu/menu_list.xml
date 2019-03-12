@@ -39,6 +39,12 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/item_retrofit"
+        android:title="Retrofit 2"
+        android:icon="@drawable/ic_view_list_black_24dp"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/item_quitter"
         android:title="Quitter"
         android:icon="@drawable/ic_view_list_black_24dp"

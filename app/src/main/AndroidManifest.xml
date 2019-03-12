@@ -12,15 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        Ajout d'une authorisation obligatoire depuis API 26
-        precisez le nom de votre package pour l'atribute android:authorities="package"
+        <activity android:name=".retrofit2.RetrofitActivity"></activity>
+        <!-- Ajout d'une authorisation obligatoire depuis API 26 -->
+        <!-- precisez le nom de votre package pour l'atribute android:authorities="package" -->
         <provider
             android:name="com.activeandroid.content.ContentProvider"
             android:authorities="com.app"
             android:enabled="true"
-            android:exported="false"></provider>
-        <!-- definir la BD -->
+            android:exported="false" /> <!-- definir la BD -->
         <meta-data
             android:name="AA_DB_NAME"
             android:value="formation.db" />
@@ -45,7 +44,6 @@
         </activity>
 
         <service android:name=".servicethread.InfoService" />
-
     </application>
 
 </manifest>
