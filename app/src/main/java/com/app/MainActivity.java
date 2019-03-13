@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.app.activeAndroid.OrmActivity;
-import com.app.retrofit2.RetrofitActivity;
+import com.app.retrofitdemo.RetrofitActivity;
 import com.app.common.CommonPersonne;
 import com.app.model.Personne;
 import com.app.servicethread.ThreadServiceActivity;

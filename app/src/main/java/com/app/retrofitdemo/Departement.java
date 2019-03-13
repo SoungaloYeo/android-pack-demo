@@ -1,36 +1,41 @@
-package com.app.retrofit2;
+package com.app.retrofitdemo;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Departement {
 
     @SerializedName("id")
-    private Integer id;
+    @Expose
+    private Long id;
 
     @SerializedName("libelle")
+    @Expose
     private String libelle;
 
     @SerializedName("population")
+    @Expose
     private int population;
 
     @SerializedName("nbreVille")
+    @Expose
     private int nbreVille;
 
     public Departement() {
     }
 
-    public Departement(Integer id, String libelle, int population, int nbreVille) {
+    public Departement(Long id, String libelle, int population, int nbreVille) {
         this.id = id;
         this.libelle = libelle;
         this.population = population;
         this.nbreVille = nbreVille;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,5 +61,15 @@ public class Departement {
 
     public void setNbreVille(int nbreVille) {
         this.nbreVille = nbreVille;
+    }
+
+    @Override
+    public String toString() {
+        return "Departement{" +
+                "id=" + id +
+                ", libelle='" + libelle + '\'' +
+                ", population=" + population +
+                ", nbreVille=" + nbreVille +
+                '}';
     }
 }
