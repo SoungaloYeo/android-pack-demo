@@ -1,5 +1,6 @@
 package com.app.retrofitdemo;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.app.R;
 import com.app.retrofitdemo.dao.DepartementDao;
 import com.app.retrofitdemo.repository.DepRepository;
+import com.app.retrofitdemo.repository.ListDepActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +37,8 @@ public class RetrofitActivity extends AppCompatActivity {
     @BindView(R.id.txt_retropop)
     EditText txtPopulation;
 
-    @BindView(R.id.txt_retronbrplace)
-    EditText txtNbrePlace;
+    @BindView(R.id.txt_retronbrville)
+    EditText txtNbreVille;
 
     @BindView(R.id.toolBar)
     Toolbar toolbar;
@@ -46,7 +48,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
     DepartementDao departementDao = null;
     List<Departement> departementList;
-
+    Departement departement = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,30 +62,28 @@ public class RetrofitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         departementDao = new DepartementDao();
-        departementList = new ArrayList<>();
-
+//        departementList = new ArrayList<>();
+        departement = new Departement();
     }
 
 
     @OnClick(R.id.retro_fab)
     void submit(View view) {
+//        departement.setLibelle(txtLibelle.getText().toString());
+//        departement.setPopulation(Integer.parseInt(txtPopulation.getText().toString()));
+//        departement.setNbreVille(Integer.parseInt(txtPopulation.getText().toString()));
+//        departementDao.addDep(departement);
+        clear();
+        Snackbar.make(view, "it's ok", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(RetrofitActivity.this, "en cours...", Toast.LENGTH_SHORT).show();
-                departementList = departementDao.getAllDep();
-            }
-        }, 5000);
-
-
-        if (departementList != null) {
-            Snackbar.make(view, "it's ok", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        }
-
-        for (Departement dep : departementList) {
-            Log.i(TAG, "********* " + dep.toString());
-        }
+        startActivity(new Intent(RetrofitActivity.this, ListDepActivity.class));
     }
+
+    void clear() {
+        this.txtLibelle.getText().clear();
+        this.txtNbreVille.getText().clear();
+        this.txtPopulation.getText().clear();
+    }
+
 }

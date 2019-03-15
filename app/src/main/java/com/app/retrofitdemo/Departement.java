@@ -3,7 +3,9 @@ package com.app.retrofitdemo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Departement {
+import java.io.Serializable;
+
+public class Departement implements Serializable {
 
     @SerializedName("id")
     @Expose

@@ -15,17 +15,19 @@ import retrofit2.Response;
 
 public class DepartementDao {
 
-    DepRepository depRepository;
-    Departement departement;
-    List<Departement> deps = null;
-    boolean bool;
+    private final String TAG ="DepartementDao";
+
+    private DepRepository depRepository;
+    private Departement departement = null;
+    private List<Departement> deps = null;
+    private boolean bool;
 
     public DepartementDao() {
         this.depRepository = Utilities.getDepService();
     }
 
     public List<Departement> getAllDep() {
-        Call<List<Departement>> call = depRepository.getAllDep();
+        Call<List<Departement>> call = Utilities.getDepService().getAllDep();
 
         call.enqueue(new Callback<List<Departement>>() {
             @Override
@@ -33,10 +35,16 @@ public class DepartementDao {
                 if (response.isSuccessful()) {
                     deps = new ArrayList<>();
                     deps = response.body();
+                    for (Departement dep : deps) {
+                        Log.i(TAG,dep.toString());
+                    }
+                }else {
+                    Log.i(TAG, "!!! "+response.code()+" "+response.message());
                 }
             }
             @Override
             public void onFailure(Call<List<Departement>> call, Throwable t) {
+                Log.i(TAG, "*** Failure retry again");
 
             }
         });
@@ -63,22 +71,24 @@ public class DepartementDao {
     }
 
 
-    public boolean addDep(Departement departement) {
-        Call<Departement> call = depRepository.addDep(departement);
+    public Departement addDep(final Departement dep) {
+        Call<Departement> call = depRepository.addDep(dep);
         call.enqueue(new Callback<Departement>() {
             @Override
             public void onResponse(Call<Departement> call, Response<Departement> response) {
                 if (response.isSuccessful()) {
                     bool = true;
+                    departement = response.body();
+                    Log.i(TAG, "****** Ajouté...");
                 }
             }
             @Override
             public void onFailure(Call<Departement> call, Throwable t) {
-                Log.e("ERROR: ", t.getMessage());
+                Log.i(TAG, t.getMessage());
                 bool = false;
             }
         });
-        return bool;
+        return departement;
     }
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.DELETE;
@@ -14,7 +15,11 @@ import retrofit2.http.Body;
 
 public interface DepRepository {
 
-    @GET("./")
+//    @Headers({
+//            "Accept: application/vnd.github.v3.full+json",
+//            "User-Agent: Retrofit-Sample-App"
+//    })
+    @GET("all/")
     Call<List<Departement>> getAllDep();
 
     @GET("./{id}")
@@ -23,7 +28,7 @@ public interface DepRepository {
     @POST("./")
     Call<Departement> addDep(@Body Departement departement);
 
-    @PUT("./")
+    @PUT(".")
     Call<Departement> updateDep(Long id, @Body Departement departement);
 
     @DELETE("./{id}")
