@@ -1,12 +1,11 @@
 package com.app.retrofitdemo.repository;
 
-import com.app.retrofitdemo.Departement;
+import com.app.retrofitdemo.model.Departement;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.DELETE;

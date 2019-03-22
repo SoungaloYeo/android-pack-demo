@@ -1,20 +1,17 @@
-package com.app.retrofitdemo.repository;
+package com.app.retrofitdemo;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.app.R;
-import com.app.retrofitdemo.Departement;
-import com.app.retrofitdemo.Utilities;
+import com.app.retrofitdemo.adapter.DepAdapter;
+import com.app.retrofitdemo.model.Departement;
 import com.app.retrofitdemo.dao.DepartementDao;
 
 import java.util.ArrayList;
@@ -22,9 +19,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ListDepActivity extends AppCompatActivity {
 
@@ -42,6 +36,8 @@ public class ListDepActivity extends AppCompatActivity {
     private List<Departement> departements = null;
     private DepartementDao departementDao = null;
 
+    DepAdapter depAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +49,11 @@ public class ListDepActivity extends AppCompatActivity {
 
         departements = new ArrayList<>();
         departementDao = new DepartementDao();
-        departements = departementDao.getAllDep();
 
-//progressBar.setVisibility(View.INVISIBLE);
+        departements = departementDao.getAllDep(progressBar,listView, this);
+
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,24 +62,7 @@ public class ListDepActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
-//    private class TacheArrière extends AsyncTask<Integer, Integer, Integer> {
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//        }
-//
-//        @Override
-//        protected Integer doInBackground(Integer... integers) {
-//            departements = departementDao.getAllDep();
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Integer s) {
-//            super.onPostExecute(s);
-//        }
-//    }
 }
